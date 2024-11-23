@@ -1,0 +1,48 @@
+package com.sampleproject.spring_boot_example_sts.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import jdk.internal.org.jline.utils.Log;
+import lombok.Data;
+
+//for RESTful APIs
+@RestController
+public class DemoController {
+	 
+	String message = "Hello World";
+	
+	@GetMapping("/get")
+	public String demo() {
+		return message;
+	}
+	
+	static class Numbers {
+        private int firstNumber;
+        private int secondNumber;
+
+        public int getFirstNumber() {
+            return firstNumber;
+        }
+
+        public void setFirstNumber(int firstNumber) {
+            this.firstNumber = firstNumber;
+        }
+
+        public int getSecondNumber() {
+            return secondNumber;
+        }
+
+        public void setSecondNumber(int secondNumber) {
+            this.secondNumber = secondNumber;
+        }
+	}
+	
+	@PostMapping("/add")
+	public int add(@RequestBody Numbers number) {
+		int addition = (number.firstNumber + number.secondNumber);
+		return addition;
+	}
+}

@@ -1,0 +1,8 @@
+package com.sampleproject.spring_boot_example_sts; 
+
+@SpringBootApplication
+public class SpringBootExampleSts {
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootExampleSts.class, args)
+	}
+}

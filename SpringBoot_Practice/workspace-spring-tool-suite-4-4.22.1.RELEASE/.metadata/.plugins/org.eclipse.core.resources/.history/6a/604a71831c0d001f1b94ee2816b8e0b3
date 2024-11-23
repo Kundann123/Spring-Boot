@@ -1,0 +1,30 @@
+package com.sampleproject.spring_boot_example_sts.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import lombok.Data;
+
+//for RESTful APIs
+@RestController
+public class DemoController {
+	 
+	String message = "Hello World";
+	
+	@GetMapping("/get")
+	public String demo() {
+		return message;
+	}
+	
+	@Data
+	static class Numbers{
+		int a;
+		int b;
+	}
+	
+	@PostMapping("/add")
+	public Integer add(@RequestBody Numbers number) {
+		return (number.a + number.b);
+	}
+}

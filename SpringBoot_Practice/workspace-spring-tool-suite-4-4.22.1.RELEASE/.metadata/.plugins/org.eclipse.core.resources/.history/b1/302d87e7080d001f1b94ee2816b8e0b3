@@ -1,0 +1,17 @@
+package com.sampleproject.spring_boot_example_sts.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class DemoController {
+	
+	@Value("${application.message:Hello World}")  
+	private String message = "Hello World";  
+	
+	@GetMapping("/get")
+	public String demo() {
+		return message;
+	}
+}
